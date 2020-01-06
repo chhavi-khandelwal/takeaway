@@ -1,0 +1,141 @@
+@import '../../shared/styles/_mixins.scss';
+@import '../../shared/styles/_variables.scss';
+@import '../../shared/styles/_placeholders.scss';
+
+.tile {
+  width: 250px;
+  height: 230px;
+  position: relative;
+  background-color: $color-white;
+  justify-self: center;
+  cursor: pointer;
+  @include anim-size-fade-in(0, 250px);
+  animation: sizeFadeIn 1s ease-in-out;
+  border-radius: $border-radius-unit $border-radius-unit 0 0;
+
+  img {
+    overflow: hidden;
+    animation: sizeFadeIn 1s ease-in-out;
+    border-radius: $border-radius-unit $border-radius-unit 0 0;
+
+    &.love {
+      fill: $color-red !important;
+    }
+  }
+
+  svg {
+    width: 22px;
+    height: 20px;
+  }
+  .love path {
+    fill: $color-red !important;
+    stroke: $color-red !important;
+  }
+
+  a {
+    text-decoration: none;
+    color: $color-gray-darker;
+
+    &:hover {
+      color: $color-gray-dark;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 150px;
+  }
+
+  &__club {
+    @extend %flex;
+    justify-content: space-between;
+  }
+
+  &__info {
+    padding: 20px;
+    height: 80px;
+    box-shadow: 0 4px 2px -1px $color-gray, 0 0px 2px -1px $color-gray-light inset;
+    border-radius: 0 0 $border-radius-unit $border-radius-unit;
+
+    &__bottom-bar {
+      @extend %flex;
+      justify-content: space-between;
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 15px;
+
+      &__rating {
+        @extend %flex;
+    
+        .rating__star {
+          background: url('../../assets/images/icon-blank-rating-star.svg') 0 0 no-repeat;
+          width: 17px;
+          height: 17px;
+          background-size: 100%;
+        }
+        .rating__star--golden {
+          background: url('../../assets/images/icon-filled-rating-star.svg') 0 0 no-repeat;
+          width: 17px;
+          height: 17px;
+          background-size: 100%;
+        }
+
+        .rating__star-half {
+          background: url('../../assets/images/icon-half-star.svg') -35px 1px no-repeat;
+          width: 17px;
+          height: 17px;
+          background-size: 875%;
+        }
+
+        .rating__text {
+          margin-left: $base-spacing-unit / 4;
+          font-size: $font-small;
+          color: $color-red;
+          font-weight: $weight-bold;
+          margin-top: 3px;
+        }
+      }
+
+      &__price {
+        @extend %flex;
+        font-size: $font-normal;
+        font-weight: $weight-bold;
+        color: $color-gray-dark;
+    
+        &__currency {
+          margin-right: $base-spacing-unit / 5;
+        }
+      }
+    }
+  }
+
+  &__title {
+    font-size: $font-small;
+    margin-bottom: 10px;
+    font-weight: $weight-bold;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-height: 20px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__offer {
+    @extend %flex;
+    font-size: $font-small;
+    color: $color-white;
+    position: absolute;
+    left: 0;
+    top: 20px;
+    background-color: $color-red;
+    min-width: 60px;
+    height: 24px;
+    padding: $base-spacing-unit / 4;
+    font-weight: $weight-bolder;
+  }
+}

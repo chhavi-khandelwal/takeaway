@@ -1,0 +1,53 @@
+@import '../../shared/styles/_variables.scss';
+
+.search__bar {
+  margin: $base-spacing-unit * 2 $base-spacing-unit / 2;
+
+  &__input-wrapper {
+    position: relative;
+    width: 320px;
+    margin: 0 auto;
+
+    .icon--search {
+      position: absolute;
+      right: 0;
+      top: 0;
+      background: url('../../assets/images/icon-search.svg') center no-repeat;
+      background-size: 40%;
+      transition: right 0.5s;
+      cursor: pointer;
+      padding: $base-spacing-unit;
+      border: none;
+      outline: none;
+
+      &:hover {
+        background: url('../../assets/images/icon-search-dark.svg') center no-repeat;
+        background-size: 40%;
+      }
+    }
+
+    input[type="text"] {
+      width: 100%;
+      height: 40px;
+      padding: $base-spacing-unit / 4 $base-spacing-unit * 2 $base-spacing-unit / 4 $base-spacing-unit;
+      display: block;
+      box-shadow: 0 0 4px 1px $color-gray;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      font-size: $font-normal;
+      transform: scale(1);
+      transition: transform 0.5s;
+      margin: 0 auto;
+      color: $color-gray-medium;
+  
+      &:focus, &:active {
+        transform: scale(1.1);
+
+        & + .icon--search, & + .icon--search {
+          right: -5px;
+        }
+      }
+    }    
+  }
+}

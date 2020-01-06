@@ -1,0 +1,9 @@
+@import '../../shared/styles/_variables.scss';
+
+.tile__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: minmax(200px, auto);
+  grid-gap: 3em 1em;
+  padding: 0 $base-spacing-unit;
+}
