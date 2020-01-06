@@ -25,7 +25,6 @@ const RestaurantService = {
     },
 
     sortBy: (restaurants, sortList=[]) => {
-
         return restaurants.sort((r1, r2) => {
             const favorite = DEFAULT_SORT_OPTIONS.FAVORITE;
             const status = DEFAULT_SORT_OPTIONS.STATUS;
@@ -48,7 +47,7 @@ const RestaurantService = {
                         const r2SortType = r2.sortingValues[sortOption.type]
                         if (r1SortType === r2SortType) {
                             if (i === sortList.length - 1) {
-                                return 0;
+                                return r1.id > r2.id ? 1 : -1;
                             }
                             continue;
                         }
@@ -97,5 +96,6 @@ export const {
     markFavorite,
     reArrangeRestaurants,
     getFilteredRestaurants,
-    sortBy
+    sortBy,
+    updateOptionsList
 } = RestaurantService;

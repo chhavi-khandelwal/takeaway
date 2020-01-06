@@ -1,16 +1,17 @@
 import { SORT, MARK_FAVORITE, SEARCH } from "../actionTypes";
+import { SORT_OPTION_LIST } from '../../shared/constants';
 import data from '../../dataStorage/data';
-import { reArrangeRestaurants, markFavorite, getFilteredRestaurants, sortBy } from '../../shared/utils/service';
+import { reArrangeRestaurants, markFavorite, getFilteredRestaurants, sortBy, updateOptionsList } from '../../shared/utils/service';
 
 const initialState = {
-  selectedSortOptions: [],
-  restaurants: sortBy(data.restaurants)
+  selectedSortOptions: [ SORT_OPTION_LIST[0] ],
+  restaurants: sortBy(data.restaurants, [ SORT_OPTION_LIST[0] ])
 };
 
 const Restaurants = (state = initialState, action) => {
   	switch (action.type) {
 		case SORT: return {
-			selectedSortOptions: [ ...state.selectedSortOptions, action.payload.option ],
+			selectedSortOptions: [ ...updateOptionsList(action.payload, state.selectedSortOptions) ],
 			restaurants: [ ...reArrangeRestaurants(state, action.payload) ]
 		}
 

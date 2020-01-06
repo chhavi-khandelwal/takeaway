@@ -54,6 +54,16 @@ class Restaurant extends React.Component {
                                     <span className="rating__text">{ ratings.length ? restaurant.sortingValues.ratingAverage : '' }</span>
                                 }
                             </div>
+
+                        </div>
+                        <div className="tile__info__bottom-bar">
+                            <div className="selected__sort__options">
+                                {
+                                    this.props.sortOptions.map((option, index) =>
+                                        option.id !== 203 && <span className="sort__tag" key={index}>{ `${option.name}:${restaurant.sortingValues[option.type]}` }</span>
+                                    )
+                                }
+                            </div>
                         </div>
                     </div>
                 </a>
@@ -62,7 +72,12 @@ class Restaurant extends React.Component {
     }
 }
 
+//update props to re-render
+const mapStateToProps = state => {
+    return { sortOptions: state.Restaurants.selectedSortOptions };
+};
+
 export default connect(
-    null,
+    mapStateToProps,
     { sortBy, markFavorite }
 )(Restaurant);

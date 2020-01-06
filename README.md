@@ -32,7 +32,7 @@ To build a production level build
 - There are default sort options which gets applied to the restaurants when they are loaded. 1st priority is of favorite restaurant marked. 2nd is status[open, order ahead, closed]. If 2 restaurants are marked favorite, they are then sorted on the basis of restaurant.
 This logic works for other sort filters too.
 For example: if `bestmatch` sort option is selected:
-First restaurants are sorted based on favorites. if both restaurants are favourites, they are sorted on the basis of status; again if status of 2 restaurants is equal, they are sorted on the basis of sort filter select,i.e. bestmatch; if bestmatch for both are equal, then they are sorted on the basis of ids.
+First restaurants are sorted based on favorites. if both restaurants are favourites, they are sorted on the basis of status; again if status of 2 restaurants is equal, they are sorted on the basis of default sort filter selected,i.e. bestmatch; if bestmatch for both are equal, then they are sorted on the basis of ids.
 - One an mark the restaurant unfavorite or deselect the sort options; and restaurants get sorted accordingly.
 - Search works on enter or clicking on serach icon near text box.
 - Search works on sorted options and vice-versa.
@@ -42,6 +42,9 @@ First restaurants are sorted based on favorites. if both restaurants are favouri
  1. Press enter : It shows all the results associated with the string.
  2. Click the search icon button: It shows all the results associated with the string.
  3. To get back to initial state, clear the input text or refresh the page.
+
+- Mobile Mode:
+It shows a hamburger icon for the filters on mobile with apply button. clicking on hamburger icon opens the filter menu and clicking on apply btn applies the selected filters and shows the list of restaurants.
 
 ## Assumptions
 
@@ -53,7 +56,7 @@ First restaurants are sorted based on favorites. if both restaurants are favouri
 - Used SCSS for CSS which allowed to use common variables/mixins/placeholders and maintain css architecture.
 - Use BEM for styling.
 - Animations are added using pure CSS(no UI library used)
-- Added e2e Test cases for basic search scenarios.
+- Added e2e Test cases for basic search scenarios. There are 2 test files App.test.js & Sort.test.js
 - App is mobile/desktop/tablet compatible
 
 ## Future improvements and features

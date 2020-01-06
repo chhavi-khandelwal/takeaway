@@ -9,7 +9,7 @@ class FilterBox extends React.Component {
 		super(props);
 		this.state = {
 			showFilters: false,
-			checkedFilters: []
+			checkedFilters: [true]
 		};
 	}
 

@@ -4,7 +4,7 @@
 
 .tile {
   width: 250px;
-  height: 230px;
+  height: auto;
   position: relative;
   background-color: $color-white;
   justify-self: center;
@@ -52,15 +52,15 @@
   }
 
   &__info {
-    padding: 20px;
-    height: 80px;
+    padding: $base-spacing-unit $base-spacing-unit / 2;
+    height: auto;
     box-shadow: 0 4px 2px -1px $color-gray, 0 0px 2px -1px $color-gray-light inset;
     border-radius: 0 0 $border-radius-unit $border-radius-unit;
 
     &__bottom-bar {
       @extend %flex;
       justify-content: space-between;
-      position: absolute;
+      // position: absolute;
       left: 20px;
       right: 20px;
       bottom: 15px;
@@ -96,17 +96,6 @@
           margin-top: 3px;
         }
       }
-
-      &__price {
-        @extend %flex;
-        font-size: $font-normal;
-        font-weight: $weight-bold;
-        color: $color-gray-dark;
-    
-        &__currency {
-          margin-right: $base-spacing-unit / 5;
-        }
-      }
     }
   }
 
@@ -137,5 +126,26 @@
     height: 24px;
     padding: $base-spacing-unit / 4;
     font-weight: $weight-bolder;
+  }
+
+  .selected__sort__options {
+    @extend %flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: $base-spacing-unit / 2;
+    flex-wrap: wrap;
+  }
+
+  .sort__tag {
+    padding: 3px;
+    background-color: $color-red;
+    color: $color-white;
+    font-size: 7px;
+    text-transform: capitalize;
+    border-radius: $border-radius-unit;
+    font-weight: $weight-bolder;
+    margin-right: 5px;
+    margin-top: 2px;
+
   }
 }
