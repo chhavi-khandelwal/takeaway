@@ -1,6 +1,6 @@
 import React from 'react';
-import App from './App';
-import data from './dataStorage/data.js';
+import App from '../App';
+import data from '../dataStorage/data.js';
 import Adapter from 'enzyme-adapter-react-16';
 import { mount, configure } from 'enzyme';
 import { expect } from 'chai';
